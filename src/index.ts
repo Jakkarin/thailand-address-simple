@@ -1,3 +1,3 @@
-import ThailandAddressSimple from "./core";
-export { Address, Config, Database } from "./types";
+import ThailandAddressSimple from './thailand-address-simple';
+export * from "./types";
 export default ThailandAddressSimple;

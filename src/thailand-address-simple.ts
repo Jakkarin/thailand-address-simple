@@ -71,13 +71,7 @@ export default class ThailandAddressSimple {
     }
 
     init = async () => {
-        if (/^http(s)?/.test(this.config.database)) {
-            this.address = reStructure((await axios.get<Database>(this.config.database)).data);
-        } else if (typeof process === "object") {
-            this.address = reStructure(JSON.parse(require("fs").readFileSync(this.config.database).toString()));
-        } else {
-            throw new Error("url or path is invalid");
-        }
+        this.address = reStructure((await axios.get<Database>(this.config.database)).data);
     };
 
     search = (input: string) => {
