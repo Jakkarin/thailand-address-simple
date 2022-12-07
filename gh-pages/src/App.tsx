@@ -16,7 +16,7 @@ function App() {
     };
 
     const handleInputChange = function (e: ChangeEvent<HTMLInputElement>) {
-        const value = e.target.value;
+        const value = e?.target?.value ?? '';
         if (!value.trim()) {
             setState({ ...state, result: [], search: '' });
         } else {
@@ -33,6 +33,7 @@ function App() {
                     </h2>
                     <p className="mt-2 text-center text-sm text-gray-600">
                         Github: <a href="https://github.com/Jakkarin/thailand-address-simple">https://github.com/Jakkarin/thailand-address-simple</a>
+                        <br />
                         Github (ต้นฉบับ): <a href="https://github.com/earthchie/jquery.Thailand.js">https://github.com/earthchie/jquery.Thailand.js</a>
                     </p>
                 </div>
@@ -56,6 +57,7 @@ function App() {
                                     onChange={() => handleSelect(row)}
                                     className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                 />
+
                                 <label htmlFor={row.key} className="ml-3 block text-sm font-medium text-gray-700">
                                     {row.district} ›› {row.amphoe} ›› {row.province} ›› {row.zipcode}
                                 </label>
