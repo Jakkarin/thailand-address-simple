@@ -1,53 +1,13 @@
-<html>
-    <head>
-        <title>Thailand Address Simple - Demo</title>
-        <script src="https://jakkarin.github.io/thailand-address-simple/dist/bundle.umd.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    </head>
-    <body>
-        <h1>Thailand Address Simple - Demo</h1>
-
-        <div style="margin-bottom: 15px">
-            <div>
-                Github:
-                <a href="https://github.com/Jakkarin/thailand-address-simple">https://github.com/Jakkarin/thailand-address-simple</a>
-            </div>
-            <div>
-                Github (ต้นฉบับ):
-                <a href="https://github.com/earthchie/jquery.Thailand.js">https://github.com/earthchie/jquery.Thailand.js</a>
-            </div>
-        </div>
-
-        <div id="app" style="display: none">
-            <div>
-                <input type="text" v-model="search" placeholder="ค้นหาที่นี่" />
-            </div>
-            <div>
-                <ul>
-                    <li v-for="item of result">{{item.district}} ›› {{item.amphoe}} ›› {{item.province}} ›› {{item.zipcode}}</li>
-                </ul>
-            </div>
-        </div>
-
-        <script>
-            const address = new ThailandAddressSimple();
-            address.init().then(() => {
-                new Vue({
-                    el: "#app",
-                    data: {
-                        search: "",
-                        result: [],
-                    },
-                    watch: {
-                        search: function (ss) {
-                            this.result = address.search(ss).slice(0, 30);
-                        },
-                    },
-                    mounted: function () {
-                        document.querySelector("#app").removeAttribute("style");
-                    },
-                });
-            });
-        </script>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>

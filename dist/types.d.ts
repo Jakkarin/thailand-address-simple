@@ -12,4 +12,3 @@ export interface Address {
     province: string;
     zipcode: string;
 }
-//# sourceMappingURL=types.d.ts.map
